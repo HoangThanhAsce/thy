@@ -27,7 +27,7 @@ log('hidden after settle (p1):', await page.$$eval('[data-anim]', els => els.fil
 const env = await page.$('a.ln-link');
 const box = await env.boundingBox();
 await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2);
-await page.waitForURL('**/page-2', { timeout: 10000 });
+await page.waitForURL(u => /\/page-2\/?$/.test(u.pathname), { timeout: 10000 });
 log('envelope click ->', new URL(page.url()).pathname);
 await page.waitForTimeout(2500);
 log('nav active p2:', await page.$$eval('.ln-nav li', ls => ls.map(l => `${l.textContent}:${l.hasAttribute('data-active')}`)));
@@ -76,7 +76,7 @@ log('focus after tab:', await page.evaluate(() => `${document.activeElement.tagN
 // nav back to page 1
 await page.evaluate(() => window.scrollTo(0, 0));
 await page.click('.ln-nav >> text=Page 1');
-await page.waitForURL(u => u.pathname.endsWith('/template-black-gold-graduation-rsvp'));
+await page.waitForURL(u => /\/template-black-gold-graduation-rsvp\/?$/.test(u.pathname));
 await page.waitForTimeout(3000);
 log('nav Page 1 ->', new URL(page.url()).pathname, 'hidden:', await page.$$eval('[data-anim]', els => els.filter(e => +getComputedStyle(e).opacity < 0.99).length));
 
