@@ -14,12 +14,13 @@ const tinos = Tinos({
 // Tab title vs. the preview card shown when the link is shared
 const SHARE_TITLE = "Anh Thy thân mời bạn";
 const SHARE_DESCRIPTION = "Design by Hoangthanh.pro";
-// 1200×630 capture of page 1 (envelope); link previews need an absolute URL
+// The invitation card cropped below the date line (no address or phone numbers);
+// link previews need an absolute URL
 const SHARE_IMAGE = {
-  url: "/sites/lunera-nest/og-image.jpg",
+  url: "/sites/lunera-nest/og-invitation.jpg",
   width: 1200,
-  height: 630,
-  alt: "Anh Thy - Class of 2026 graduation invitation",
+  height: 1233,
+  alt: "Thân mời Lễ Tốt Nghiệp - 11/11/2026 - 9h00",
 };
 
 export const metadata: Metadata = {
