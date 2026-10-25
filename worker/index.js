@@ -2,7 +2,7 @@
 // (see run_worker_first in wrangler.jsonc). Workers static assets ignore the
 // Range header, but Safari on iOS needs 206 partial responses to play media.
 
-export default {
+const worker = {
   async fetch(request, env) {
     const response = await env.ASSETS.fetch(request);
     if (response.status !== 200) return response;
@@ -11,6 +11,8 @@ export default {
     return partial(response, range);
   },
 };
+
+export default worker;
 
 function withAcceptRanges(response) {
   const headers = new Headers(response.headers);
