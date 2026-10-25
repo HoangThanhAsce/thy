@@ -1,0 +1,44 @@
+{
+ "0": [
+  {
+   "id": "LBxWxgrGsCfq0Ttk",
+   "sec": 0,
+   "dur": 1943,
+   "type": "wipe",
+   "fromOpacity": 0,
+   "midProgress": 0.74,
+   "channel": "x",
+   "delay": 0
+  },
+  {
+   "id": "LBPS5l0Vb5CTxBys",
+   "sec": 0,
+   "dur": 2143,
+   "type": "wipe",
+   "fromOpacity": 0,
+   "midProgress": 0.65,
+   "channel": "x",
+   "delay": 0
+  },
+  {
+   "id": "LBGV8RRgGWgq7S4N",
+   "sec": 0,
+   "dur": 2343,
+   "type": "wipe",
+   "fromOpacity": 0,
+   "midProgress": 0.87,
+   "channel": "x",
+   "delay": 0
+  },
+  {
+   "id": "LBtKsR7jPrbLhFrL",
+   "sec": 0,
+   "dur": 2543,
+   "type": "wipe",
+   "fromOpacity": 0,
+   "midProgress": 0.84,
+   "channel": "x",
+   "delay": 0
+  }
+ ]
+}
