@@ -175,7 +175,8 @@ const convert = (e, te, me, W, TW, MW, myShift) => {
   }
   if (e.type === 'embed') {
     base();
-    el.kind = /youtube/.test(e.src) ? 'youtube' : /tickcounter/.test(e.src) ? 'countdown' : 'rsvp';
+    // the source's hidden YouTube player becomes a local audio toggle
+    el.kind = /youtube/.test(e.src) ? 'song' : /tickcounter/.test(e.src) ? 'countdown' : 'rsvp';
     delete el.opacity;
     return el;
   }

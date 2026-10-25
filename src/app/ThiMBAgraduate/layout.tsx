@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Tinos } from "next/font/google";
 
 import "@/components/sites/lunera-nest/lunera-nest.css";
+import { SongProvider } from "@/components/sites/lunera-nest/widgets/song-player";
 
 // Fallback for Vietnamese glyphs missing from the Canva "Times New Roman MT" files
 const tinos = Tinos({
@@ -34,5 +35,9 @@ export default function InvitationLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <div className={tinos.variable}>{children}</div>;
+  return (
+    <div className={tinos.variable}>
+      <SongProvider src="/sites/lunera-nest/media/newbeginning.mp3">{children}</SongProvider>
+    </div>
+  );
 }

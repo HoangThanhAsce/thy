@@ -60,6 +60,10 @@ Canva source in these places (overrides live in `scripts/lunera-nest/generate-da
   Google Fonts, `--font-ln-vi`) supplies those glyphs.
 - Venue photo replaced by the owner's UFM campus photo (`media/64196h-dep-cua-ufmHDD.jpg`).
 - Tab title "Anh Thy - Lễ Tốt Nghiệp".
-- The song starts automatically when page 2 is reached by an in-app click (envelope or
-  nav), using the click's user activation; direct visits still need the play button.
+- The hidden YouTube player is replaced by a page-level <audio> (`media/newbeginning.mp3`,
+  provided by the owner) in the route layout. It starts inside the tap that opens page 2
+  (envelope or nav), keeps playing across both pages, loops, and on a direct visit to
+  page 2 starts on the first tap. The drawn player toggles play/pause. Verified under
+  Chrome's strict `user-gesture-required` policy on desktop, Pixel 7 and iPhone 14
+  emulation; no third-party requests remain.
 - The "SEND A GIFT" button links to https://www.instagram.com/hoangthanh.1101/.

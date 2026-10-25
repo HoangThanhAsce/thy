@@ -130,7 +130,7 @@ export interface TextElement extends ElementBase {
 }
 
 export interface WidgetElement extends ElementBase {
-  kind: "youtube" | "countdown" | "rsvp";
+  kind: "song" | "countdown" | "rsvp";
 }
 
 export type SiteElement =

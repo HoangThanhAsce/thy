@@ -1009,7 +1009,7 @@ export const detailsPage: PageData = {
               180.19
             ]
           },
-          "kind": "youtube"
+          "kind": "song"
         },
         {
           "id": "LBP8HK2JdGH6TbHp",

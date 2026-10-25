@@ -15,7 +15,7 @@ import type {
 } from "./types";
 import { Countdown } from "./widgets/countdown";
 import { RsvpForm } from "./widgets/rsvp-form";
-import { SongEmbed } from "./widgets/song-embed";
+import { SongToggle } from "./widgets/song-player";
 
 type Vars = CSSProperties & Record<`--${string}`, string | number>;
 
@@ -335,10 +335,10 @@ export function SiteElementView({ el }: { el: SiteElement }) {
       return <LineBlock el={el} />;
     case "text":
       return <TextBlock el={el} />;
-    case "youtube":
+    case "song":
       return (
         <WidgetBlock el={el}>
-          <SongEmbed videoId="ebhw7Kk1Cbw" />
+          <SongToggle />
         </WidgetBlock>
       );
     case "countdown":

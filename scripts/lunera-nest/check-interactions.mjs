@@ -43,8 +43,9 @@ log('sections revealed:', await page.$$eval('[data-section]', s => s.map(x => `$
 // view location link
 log('view location link:', await page.$eval('a[href*="maps"]', a => `${a.textContent} -> ${a.href} target=${a.target}`));
 // youtube iframe sits on the play button
-const play = await page.evaluate(() => { const f = document.querySelector('.ln-song'); f.scrollIntoView({ block: 'center' }); const r = f.getBoundingClientRect(); const top = document.elementFromPoint(r.x + r.width / 2, r.y + r.height * 0.55); return `${f.src} opacity=${getComputedStyle(f).opacity} hitTest=${top?.tagName}.${top?.className}`; });
-log('song embed:', play);
+// song: started by the envelope click, the player toggle sits over the drawn controls
+const song = await page.evaluate(() => { const b = document.querySelector('.ln-song-toggle'); b.scrollIntoView({ block: 'center' }); const r = b.getBoundingClientRect(); const top = document.elementFromPoint(r.x + r.width / 2, r.y + r.height * 0.55); const a = document.querySelector('audio'); return `audio ${a.paused ? 'paused' : 'playing'} t=${a.currentTime.toFixed(1)} hitTest=${top?.tagName}.${top?.className}`; });
+log('song:', song);
 
 // countdown ticks
 await page.evaluate(() => document.querySelector('.ln-countdown').scrollIntoView({ block: 'center' }));
