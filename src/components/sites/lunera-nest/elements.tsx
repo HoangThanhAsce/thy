@@ -55,19 +55,13 @@ function rectVars(el: SiteElement): Vars {
   };
 }
 
-function ElementLink({ href, label }: { href: string; label: string }) {
+function ElementLink({ href, label, hidden }: { href: string; label: string; hidden?: boolean }) {
+  // hidden duplicates stay clickable but out of the tab order and accessibility tree
+  const a11y = hidden ? { "aria-hidden": true, tabIndex: -1 } : { "aria-label": label };
   if (href.startsWith("/")) {
-    return <Link className="ln-link" href={href} aria-label={label} />;
+    return <Link className="ln-link" href={href} {...a11y} />;
   }
-  return (
-    <a
-      className="ln-link"
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={label}
-    />
-  );
+  return <a className="ln-link" href={href} target="_blank" rel="noopener noreferrer" {...a11y} />;
 }
 
 function ImageBlock({ el }: { el: ImageElement }) {
@@ -108,7 +102,7 @@ function ImageBlock({ el }: { el: ImageElement }) {
           <Image src={el.src} alt={el.alt} fill sizes={sizes} unoptimized draggable={false} />
         </div>
       </div>
-      {el.href ? <ElementLink href={el.href} label={el.alt || "Open"} /> : null}
+      {el.href ? <ElementLink href={el.href} label={el.alt || "Open"} hidden={el.linkHidden} /> : null}
     </div>
   );
 }
@@ -191,7 +185,7 @@ function ShapeBlock({ el, pulse }: { el: ShapeElement; pulse?: boolean }) {
           })}
         </svg>
       </div>
-      {el.href ? <ElementLink href={el.href} label={el.alt || "Open"} /> : null}
+      {el.href ? <ElementLink href={el.href} label={el.alt || "Open"} hidden={el.linkHidden} /> : null}
     </div>
   );
 }

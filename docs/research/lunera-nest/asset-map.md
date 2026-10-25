@@ -33,3 +33,4 @@ Replaced by the site owner:
 | Source file | Local path | Notes |
 | --- | --- | --- |
 | `media/ae0cf166f84c95175c5a57a6e7b0c985.png` (portrait) | `public/sites/lunera-nest/media/graduate-portrait.jpg` | owner's photo, JPEG 1280×854 |
+| `media/23f2b95a286d68332955398288d1cdaa.png` (venue) | `public/sites/lunera-nest/media/64196h-dep-cua-ufmHDD.jpg` | owner's photo, JPEG 900×537 |

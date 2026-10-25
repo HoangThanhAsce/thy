@@ -11,9 +11,9 @@ const tinos = Tinos({
 });
 
 export const metadata: Metadata = {
-  title: "template-black-gold-graduation-rsvp",
+  title: "Anh Thy - Lễ Tốt Nghiệp",
   openGraph: {
-    title: "template-black-gold-graduation-rsvp",
+    title: "Anh Thy - Lễ Tốt Nghiệp",
     type: "website",
   },
 };

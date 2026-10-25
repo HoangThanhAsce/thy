@@ -58,4 +58,8 @@ Canva source in these places (overrides live in `scripts/lunera-nest/generate-da
   VIEW LOCATION opens https://maps.app.goo.gl/zBwXqjNHn8JVH3hL7.
 - The Canva "Times New Roman MT" files lack ư ờ ạ ọ ồ, so Tinos (metric-compatible,
   Google Fonts, `--font-ln-vi`) supplies those glyphs.
-- The venue photo is still the source's estate image.
+- Venue photo replaced by the owner's UFM campus photo (`media/64196h-dep-cua-ufmHDD.jpg`).
+- Tab title "Anh Thy - Lễ Tốt Nghiệp".
+- The song starts automatically when page 2 is reached by an in-app click (envelope or
+  nav), using the click's user activation; direct visits still need the play button.
+- The "SEND A GIFT" button links to https://www.instagram.com/hoangthanh.1101/.

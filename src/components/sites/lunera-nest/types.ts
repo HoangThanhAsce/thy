@@ -72,6 +72,8 @@ interface ElementBase {
   /** CSS filter, e.g. a drop shadow */
   filter?: string;
   href?: string;
+  /** another element carries the accessible link to the same place */
+  linkHidden?: boolean;
   anim?: Anim;
 }
 

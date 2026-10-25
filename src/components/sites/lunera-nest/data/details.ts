@@ -1321,13 +1321,13 @@ export const detailsPage: PageData = {
             330.17,
             186.24
           ],
-          "alt": "Willow Creek Estate garden terrace",
+          "alt": "University of Finance - Marketing campus building",
           "layers": [
             {
               "path": "M9.62184581108881,0L444.20839382030704,0C449.5223924801043,0 453.8302395871004,4.307847106996099 453.8302395871004,9.62184581108881L453.8302395871004,246.3781542179954C453.8302395871004,251.69215287779264 449.5223924801043,255.9999999847887 444.20839382030704,255.9999999847887L9.62184581108881,255.9999999847887C4.307847106996099,255.9999999847887 0,251.69215287779264 0,246.3781542179954L0,9.62184581108881C0,4.307847106996099 4.307847106996099,0 9.62184581108881,0Z",
               "pathScale": 0.728,
               "image": {
-                "src": "/sites/lunera-nest/media/23f2b95a286d68332955398288d1cdaa.png",
+                "src": "/sites/lunera-nest/media/64196h-dep-cua-ufmHDD.jpg",
                 "x": 0,
                 "y": -23.47,
                 "w": 453.83,
@@ -4010,6 +4010,8 @@ export const detailsPage: PageData = {
             "duration": 1114,
             "distance": 79.7
           },
+          "href": "https://www.instagram.com/hoangthanh.1101/",
+          "linkHidden": true,
           "size": [
             316.56,
             43.66
@@ -4091,7 +4093,7 @@ export const detailsPage: PageData = {
                 {
                   "text": "SEND A GIFT",
                   "weight": 300,
-                  "href": "https://paypal.me/YourName"
+                  "href": "https://www.instagram.com/hoangthanh.1101/"
                 }
               ]
             }
@@ -4127,6 +4129,8 @@ export const detailsPage: PageData = {
             "duration": 502,
             "distance": 79
           },
+          "href": "https://www.instagram.com/hoangthanh.1101/",
+          "linkHidden": true,
           "src": "/sites/lunera-nest/svg/350a3d512764.svg",
           "alt": ""
         },
@@ -4160,6 +4164,8 @@ export const detailsPage: PageData = {
             "duration": 500,
             "distance": 77.5
           },
+          "href": "https://www.instagram.com/hoangthanh.1101/",
+          "linkHidden": true,
           "src": "/sites/lunera-nest/svg/350a3d512764.svg",
           "alt": ""
         },

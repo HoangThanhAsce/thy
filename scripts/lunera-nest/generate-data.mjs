@@ -24,6 +24,7 @@ const rgbToHex = c => { const m = /rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+)
 // Source images replaced by the site owner's own photos (source file name -> local path)
 const REPLACED = {
   ae0cf166f84c95175c5a57a6e7b0c985: `${PUB}/media/graduate-portrait.jpg`,
+  '23f2b95a286d68332955398288d1cdaa': `${PUB}/media/64196h-dep-cua-ufmHDD.jpg`,
 };
 const mediaKey = src => src.split('/').pop().replace('.png', '');
 const localSrc = src => REPLACED[mediaKey(src)] ?? `${PUB}/media/${src.split('/').pop()}`;
@@ -69,7 +70,7 @@ const animFor = id => {
 const ALT = {
   ef57de5a47ac051e60e971b6fd2b5b94: 'Black envelope sealed with a gold graduation-cap wax seal',
   ae0cf166f84c95175c5a57a6e7b0c985: 'Portrait of the graduate in a white dress holding her diploma',
-  '23f2b95a286d68332955398288d1cdaa': 'Willow Creek Estate garden terrace',
+  '23f2b95a286d68332955398288d1cdaa': 'University of Finance - Marketing campus building',
   '6bc24934a664208a608ee2a81ad32bc5': 'Graduation cap with gold roses',
 };
 
@@ -101,6 +102,15 @@ const TEXT = {
 // Font size (source px) for replaced text that must fit a narrower space than the original
 const TEXT_SIZE = {
   'Willow Creek Estate': 14,
+};
+// Whole elements turned into links. The text element carries the accessible link;
+// the button shape and icons get hidden duplicates so every part of the button is clickable.
+const INSTAGRAM = 'https://www.instagram.com/hoangthanh.1101/';
+const ELEMENT_LINKS = {
+  LBFngRxjxt3w4QHW: { href: INSTAGRAM }, // "SEND A GIFT" button label
+  LByqh3rGVbxs22Ys: { href: INSTAGRAM, hidden: true }, // button shape
+  LBJ3GWLj90Rmy9TL: { href: INSTAGRAM, hidden: true }, // left gift icon
+  LBSKFQZlzTPj9pkV: { href: INSTAGRAM, hidden: true }, // right gift icon
 };
 const HREF = {
   'https://www.google.com/maps/search/?api=1&query=123+Bloom+Street+San+Diego+CA': 'https://maps.app.goo.gl/zBwXqjNHn8JVH3hL7',
@@ -145,6 +155,11 @@ const convert = (e, te, me, W, TW, MW, myShift) => {
     if (e.filter) el.filter = e.filter;
     if (e.link) el.href = e.link.href === '#page-0' ? '/ThiMBAgraduate/page-2' : e.link.href;
     const a = animFor(e.id); if (a) el.anim = a;
+    const link = ELEMENT_LINKS[e.id];
+    if (link && e.type !== 'text') {
+      el.href = link.href;
+      if (link.hidden) el.linkHidden = true;
+    }
   };
   if (e.type === 'line') {
     el.kind = 'line'; base();
@@ -170,6 +185,7 @@ const convert = (e, te, me, W, TW, MW, myShift) => {
     el.box = { w: r2(e.box.w), h: r2(e.box.h), d: tb(e, W, 0), t: tb(te, TW, 0), m: tb(me, MW, myShift) };
     el.offset = [r2(e.offset.tx), r2(e.offset.ty)];
     el.paragraphs = paragraphs(e);
+    if (ELEMENT_LINKS[e.id]) for (const p of el.paragraphs) for (const r of p.runs) r.href = ELEMENT_LINKS[e.id].href;
     return el;
   }
   if (e.type === 'image') {

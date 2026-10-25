@@ -231,6 +231,8 @@
   transform: rotate(var(--rot, 0deg));
 }
 .ln-text {
+  /* text boxes don't block links underneath; links inside the text stay clickable */
+  pointer-events: none;
   --x: var(--bdx);
   --y: var(--bdy);
   --k: var(--bdk);
@@ -336,6 +338,7 @@
 .ln-p a {
   color: inherit;
   text-decoration: none;
+  pointer-events: auto;
 }
 
 /* Entrance animations ------------------------------------------------------
