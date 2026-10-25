@@ -10,11 +10,22 @@ const tinos = Tinos({
   variable: "--font-ln-vi",
 });
 
+// Tab title vs. the preview card shown when the link is shared
+const SHARE_TITLE = "Anh Thy thân mời bạn";
+const SHARE_DESCRIPTION = "Design by Hoangthanh.pro";
+
 export const metadata: Metadata = {
   title: "Anh Thy - Lễ Tốt Nghiệp",
+  description: SHARE_DESCRIPTION,
   openGraph: {
-    title: "Anh Thy - Lễ Tốt Nghiệp",
+    title: SHARE_TITLE,
+    description: SHARE_DESCRIPTION,
     type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: SHARE_TITLE,
+    description: SHARE_DESCRIPTION,
   },
 };
 
