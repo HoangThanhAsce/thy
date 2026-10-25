@@ -14,19 +14,29 @@ const tinos = Tinos({
 // Tab title vs. the preview card shown when the link is shared
 const SHARE_TITLE = "Anh Thy thân mời bạn";
 const SHARE_DESCRIPTION = "Design by Hoangthanh.pro";
+// 1200×630 capture of page 1 (envelope); link previews need an absolute URL
+const SHARE_IMAGE = {
+  url: "/sites/lunera-nest/og-image.jpg",
+  width: 1200,
+  height: 630,
+  alt: "Anh Thy - Class of 2026 graduation invitation",
+};
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://thy.hoangthanh110195.workers.dev"),
   title: "Anh Thy - Lễ Tốt Nghiệp",
   description: SHARE_DESCRIPTION,
   openGraph: {
     title: SHARE_TITLE,
     description: SHARE_DESCRIPTION,
     type: "website",
+    images: [SHARE_IMAGE],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: SHARE_TITLE,
     description: SHARE_DESCRIPTION,
+    images: [SHARE_IMAGE.url],
   },
 };
 
