@@ -1,12 +1,16 @@
 // Cloudflare Workers Builds runs `npm run build` (static export to ./out)
 // and then `npx wrangler deploy`, which serves ./out as static assets.
+// worker/index.js runs first only for audio, adding Range (206) support for iOS Safari.
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "thy",
   "compatibility_date": "2026-10-01",
+  "main": "./worker/index.js",
   "assets": {
     "directory": "./out",
+    "binding": "ASSETS",
     "html_handling": "auto-trailing-slash",
-    "not_found_handling": "404-page"
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/sites/lunera-nest/media/*.mp3"]
   }
 }
