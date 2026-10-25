@@ -370,6 +370,15 @@
     translate: 0 0;
   }
 }
+@keyframes ln-lift-clip {
+  0%,
+  99.9% {
+    clip-path: inset(0 -50% 0 -50%);
+  }
+  100% {
+    clip-path: inset(-100% -50% -100% -50%);
+  }
+}
 @keyframes ln-pop {
   from {
     opacity: 0;
@@ -431,8 +440,10 @@
   animation-name: ln-zoom;
   animation-timing-function: ease-out;
 }
+/* clip to the text box only while the text slides up, so script swashes stay visible after */
 .ln-root [data-anim="lift"] {
-  overflow: hidden;
+  animation-name: ln-lift-clip;
+  animation-timing-function: linear;
 }
 .ln-root [data-anim="lift"] .ln-text-inner {
   animation: ln-lift var(--dur) cubic-bezier(0.22, 1, 0.36, 1) var(--delay) both paused;
