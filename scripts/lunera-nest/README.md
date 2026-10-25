@@ -27,7 +27,7 @@ node scripts/lunera-nest/generate-data.mjs
 
 # 4. Verification against a running clone (npm run dev)
 node scripts/lunera-nest/compare-sections.mjs "$SRC/page-2" \
-  http://localhost:3000/template-black-gold-graduation-rsvp/page-2 1440 900 /tmp/p2-1440
+  http://localhost:3000/ThiMBAgraduate/page-2 1440 900 /tmp/p2-1440
 node scripts/lunera-nest/check-interactions.mjs http://localhost:3000
 node scripts/lunera-nest/montage.mjs out.png 1600 2 a.png b.png
 ```

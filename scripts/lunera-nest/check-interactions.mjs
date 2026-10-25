@@ -41,7 +41,7 @@ log('hidden after full scroll (p2):', await page.$$eval('[data-anim]', els => el
 log('sections revealed:', await page.$$eval('[data-section]', s => s.map(x => `${x.dataset.section}:${x.hasAttribute('data-in')}`).join(' ')));
 
 // view location link
-log('view location link:', await page.$eval('a[href*="google.com/maps"]', a => `${a.textContent} -> ${a.href} target=${a.target}`));
+log('view location link:', await page.$eval('a[href*="maps"]', a => `${a.textContent} -> ${a.href} target=${a.target}`));
 // youtube iframe sits on the play button
 const play = await page.evaluate(() => { const f = document.querySelector('.ln-song'); f.scrollIntoView({ block: 'center' }); const r = f.getBoundingClientRect(); const top = document.elementFromPoint(r.x + r.width / 2, r.y + r.height * 0.55); return `${f.src} opacity=${getComputedStyle(f).opacity} hitTest=${top?.tagName}.${top?.className}`; });
 log('song embed:', play);
@@ -76,7 +76,7 @@ log('focus after tab:', await page.evaluate(() => `${document.activeElement.tagN
 // nav back to page 1
 await page.evaluate(() => window.scrollTo(0, 0));
 await page.click('.ln-nav >> text=Page 1');
-await page.waitForURL(u => /\/template-black-gold-graduation-rsvp\/?$/.test(u.pathname));
+await page.waitForURL(u => /\/ThiMBAgraduate\/?$/.test(u.pathname));
 await page.waitForTimeout(3000);
 log('nav Page 1 ->', new URL(page.url()).pathname, 'hidden:', await page.$$eval('[data-anim]', els => els.filter(e => +getComputedStyle(e).opacity < 0.99).length));
 
@@ -84,7 +84,7 @@ log('nav Page 1 ->', new URL(page.url()).pathname, 'hidden:', await page.$$eval(
 for (const [w, h] of [[320, 700], [390, 844], [600, 900], [768, 1024], [1024, 768], [1200, 900], [1440, 900], [1920, 1080], [2560, 1300]]) {
   const p = await ctx.newPage(); await p.setViewportSize({ width: w, height: h });
   const res = [];
-  for (const path of ['/template-black-gold-graduation-rsvp', '/template-black-gold-graduation-rsvp/page-2']) {
+  for (const path of ['/ThiMBAgraduate', '/ThiMBAgraduate/page-2']) {
     await p.goto(BASE + path, { waitUntil: 'load' }); await p.waitForTimeout(800);
     res.push(await p.evaluate(() => `${document.documentElement.scrollWidth}/${innerWidth}`));
   }

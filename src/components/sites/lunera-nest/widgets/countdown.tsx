@@ -22,8 +22,8 @@ function partsUntil(target: number, now: number): Parts {
 const pad = (n: number) => String(n).padStart(2, "0");
 
 /**
- * Rebuild of the tickcounter.com widget the source embeds (countdown 10403780,
- * counting to 2027-07-01 00:00 America/Los_Angeles and stopping at zero).
+ * Rebuild of the tickcounter.com widget the source embeds (same layout and
+ * behaviour: counts down to `target` and stops at zero).
  */
 export function Countdown({ target }: { target: string }) {
   const targetMs = Date.parse(target);

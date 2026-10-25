@@ -58,6 +58,8 @@ export interface Paragraph {
   letterSpacing: number;
   color: string;
   uppercase?: boolean;
+  /** replaced content: keep on one line, centred on the original box */
+  nowrap?: boolean;
   runs: TextRun[];
 }
 

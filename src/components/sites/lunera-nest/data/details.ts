@@ -152,13 +152,13 @@ export const detailsPage: PageData = {
             350.15,
             455.79
           ],
-          "alt": "Portrait of Olivia Carter in a graduation cap and gown",
+          "alt": "Portrait of the graduate in a white dress holding her diploma",
           "layers": [
             {
               "path": "M0,0L256,0L256,333.230700854778L0,333.230700854778Z",
               "pathScale": 1.368,
               "image": {
-                "src": "/sites/lunera-nest/media/ae0cf166f84c95175c5a57a6e7b0c985.png",
+                "src": "/sites/lunera-nest/media/graduate-portrait.jpg",
                 "x": 0,
                 "y": -4.05,
                 "w": 256,
@@ -490,9 +490,10 @@ export const detailsPage: PageData = {
               "color": "#000000",
               "runs": [
                 {
-                  "text": "Olivia Carter"
+                  "text": "Anh Thy"
                 }
-              ]
+              ],
+              "nowrap": true
             }
           ]
         },
@@ -1446,7 +1447,7 @@ export const detailsPage: PageData = {
                 {
                   "text": "VIEW LOCATION",
                   "weight": 300,
-                  "href": "https://www.google.com/maps/search/?api=1&query=123+Bloom+Street+San+Diego+CA"
+                  "href": "https://maps.app.goo.gl/zBwXqjNHn8JVH3hL7"
                 }
               ]
             }
@@ -1892,9 +1893,10 @@ export const detailsPage: PageData = {
               "color": "#634d31",
               "runs": [
                 {
-                  "text": "2450 Rosewood Lane,"
+                  "text": "306 Võ Văn Hát, P. Long Trường,"
                 }
-              ]
+              ],
+              "nowrap": true
             },
             {
               "font": "times",
@@ -1904,9 +1906,10 @@ export const detailsPage: PageData = {
               "color": "#634d31",
               "runs": [
                 {
-                  "text": " Charleston, SC 29403"
+                  "text": " TP. Hồ Chí Minh"
                 }
-              ]
+              ],
+              "nowrap": true
             }
           ]
         },
@@ -1964,17 +1967,18 @@ export const detailsPage: PageData = {
           "paragraphs": [
             {
               "font": "times",
-              "size": 16,
+              "size": 14,
               "lineHeight": 22,
               "letterSpacing": 0,
               "color": "#1e1e1e",
               "uppercase": true,
               "runs": [
                 {
-                  "text": "Willow Creek Estate",
+                  "text": "ĐH Tài chính - Marketing",
                   "weight": 700
                 }
-              ]
+              ],
+              "nowrap": true
             }
           ]
         },
@@ -2038,9 +2042,10 @@ export const detailsPage: PageData = {
               "color": "#b48337",
               "runs": [
                 {
-                  "text": "24"
+                  "text": "11"
                 }
-              ]
+              ],
+              "nowrap": true
             }
           ]
         },
@@ -2104,9 +2109,10 @@ export const detailsPage: PageData = {
               "color": "#1e1e1e",
               "runs": [
                 {
-                  "text": "2031"
+                  "text": "2026"
                 }
-              ]
+              ],
+              "nowrap": true
             }
           ]
         },
@@ -2170,9 +2176,10 @@ export const detailsPage: PageData = {
               "color": "#1e1e1e",
               "runs": [
                 {
-                  "text": "MAY"
+                  "text": "NOV"
                 }
-              ]
+              ],
+              "nowrap": true
             }
           ]
         },
@@ -2312,9 +2319,10 @@ export const detailsPage: PageData = {
               "color": "#1e1e1e",
               "runs": [
                 {
-                  "text": "SATURDAY"
+                  "text": "WEDNESDAY"
                 }
-              ]
+              ],
+              "nowrap": true
             }
           ]
         },
@@ -2378,9 +2386,10 @@ export const detailsPage: PageData = {
               "color": "#1e1e1e",
               "runs": [
                 {
-                  "text": "AT 6:00 PM"
+                  "text": "AT 9:00 AM"
                 }
-              ]
+              ],
+              "nowrap": true
             }
           ]
         }

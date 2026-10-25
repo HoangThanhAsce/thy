@@ -6,8 +6,8 @@ Source: Canva-published site (authorized for reproduction, see `TARGET.md`).
 
 | Source | Local route | Owner |
 | --- | --- | --- |
-| `https://lunera-nest.my.canva.site/template-black-gold-graduation-rsvp/` | `/template-black-gold-graduation-rsvp` | `src/app/template-black-gold-graduation-rsvp/page.tsx` |
-| `https://lunera-nest.my.canva.site/template-black-gold-graduation-rsvp/page-2` | `/template-black-gold-graduation-rsvp/page-2` | `src/app/template-black-gold-graduation-rsvp/page-2/page.tsx` |
+| `https://lunera-nest.my.canva.site/template-black-gold-graduation-rsvp/` | `/ThiMBAgraduate` | `src/app/ThiMBAgraduate/page.tsx` |
+| `https://lunera-nest.my.canva.site/template-black-gold-graduation-rsvp/page-2` | `/ThiMBAgraduate/page-2` | `src/app/ThiMBAgraduate/page-2/page.tsx` |
 | — | `/` | redirects to page 1 (`src/app/page.tsx`) |
 
 Shared code lives in `src/components/sites/lunera-nest/`; assets in `public/sites/lunera-nest/`.

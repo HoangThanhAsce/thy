@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 export const ROUTES = {
-  invitation: "/template-black-gold-graduation-rsvp",
-  details: "/template-black-gold-graduation-rsvp/page-2",
+  invitation: "/ThiMBAgraduate",
+  details: "/ThiMBAgraduate/page-2",
 } as const;
 
 export type PageKey = keyof typeof ROUTES;

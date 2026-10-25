@@ -71,7 +71,7 @@
   min-height: 100svh;
   background: #ffffff;
   color: #000000;
-  font-family: "LN Times New Roman MT", "Times New Roman", serif;
+  font-family: "LN Times New Roman MT", var(--font-ln-vi), "Times New Roman", serif;
   -webkit-font-smoothing: auto;
 }
 
@@ -325,6 +325,13 @@
   letter-spacing: calc(var(--ls) * 1em);
   font-kerning: normal;
   overflow-wrap: break-word;
+}
+.ln-p[data-nowrap] {
+  /* replaced text keeps a single line, centred on the original box even when wider */
+  width: max-content;
+  left: 50%;
+  translate: -50% 0;
+  white-space: nowrap;
 }
 .ln-p a {
   color: inherit;

@@ -20,7 +20,8 @@ import { SongEmbed } from "./widgets/song-embed";
 type Vars = CSSProperties & Record<`--${string}`, string | number>;
 
 const FONT_FAMILY: Record<FontKey, string> = {
-  times: '"LN Times New Roman MT", "Times New Roman", serif',
+  // Tinos (metric-compatible with Times) fills the Vietnamese glyphs the Canva cut lacks
+  times: '"LN Times New Roman MT", var(--font-ln-vi), "Times New Roman", serif',
   seasons: '"LN The Seasons", serif',
   cooper: '"LN Cooper BT", serif',
   amsterdam3: '"LN Amsterdam Three", cursive',
@@ -154,7 +155,8 @@ function ShapeBlock({ el, pulse }: { el: ShapeElement; pulse?: boolean }) {
                         y={layer.image.y * layer.pathScale}
                         width={layer.image.w * layer.pathScale}
                         height={layer.image.h * layer.pathScale}
-                        preserveAspectRatio="none"
+                        // cover the frame's image box, so replacement photos crop instead of stretching
+                        preserveAspectRatio="xMidYMid slice"
                       />
                     </g>
                   </>
@@ -298,6 +300,7 @@ function TextBlock({ el }: { el: TextElement }) {
           <p
             key={i}
             className="ln-p"
+            data-nowrap={p.nowrap ? "" : undefined}
             style={{
               fontFamily: FONT_FAMILY[p.font],
               color: p.color,
@@ -347,7 +350,7 @@ export function SiteElementView({ el }: { el: SiteElement }) {
     case "countdown":
       return (
         <WidgetBlock el={el}>
-          <Countdown target="2027-07-01T00:00:00-07:00" />
+          <Countdown target="2026-11-11T09:00:00+07:00" />
         </WidgetBlock>
       );
     case "rsvp":

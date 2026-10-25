@@ -42,3 +42,20 @@ same viewport and scroll position, after entrance animations settled. Montages a
   wide elements (envelope, form) smaller than Canva, which clamps them to 92vw.
 - Entrance animations use measured types, delays and durations with CSS easing curves
   fitted to the observed mid-point progress; frame-exact timing is not guaranteed.
+
+## Personalisation (2026-10-26)
+
+The clone is now the owner's own invitation, so it intentionally differs from the
+Canva source in these places (overrides live in `scripts/lunera-nest/generate-data.mjs`):
+
+- Routes moved to `/ThiMBAgraduate` and `/ThiMBAgraduate/page-2`; the old
+  `/template-black-gold-graduation-rsvp/*` paths redirect there (301, `public/_redirects`).
+- Name "Olivia Carter" → "Anh Thy"; portrait replaced by the owner's photo
+  (`media/graduate-portrait.jpg`, cropped into the frame instead of stretched).
+- Date block → WEDNESDAY · NOV 11 2026 · AT 9:00 AM; countdown targets
+  2026-11-11 09:00 (UTC+7).
+- Venue → ĐH Tài chính - Marketing, 306 Võ Văn Hát, P. Long Trường, TP. Hồ Chí Minh;
+  VIEW LOCATION opens https://maps.app.goo.gl/zBwXqjNHn8JVH3hL7.
+- The Canva "Times New Roman MT" files lack ư ờ ạ ọ ồ, so Tinos (metric-compatible,
+  Google Fonts, `--font-ln-vi`) supplies those glyphs.
+- The venue photo is still the source's estate image.

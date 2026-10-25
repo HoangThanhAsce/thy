@@ -21,7 +21,12 @@ const r2 = v => Math.round(v * 100) / 100;
 const r4 = v => Math.round(v * 10000) / 10000;
 const prop = (style, name) => { const m = new RegExp(`(?:^|;\\s*)${name}:\\s*([^;]+)`).exec(style || ''); return m?.[1].trim(); };
 const rgbToHex = c => { const m = /rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/.exec(c || ''); if (!m) return c; const hex = '#' + [m[1], m[2], m[3]].map(v => (+v).toString(16).padStart(2, '0')).join(''); return m[4] !== undefined && +m[4] < 1 ? `rgba(${m[1]}, ${m[2]}, ${m[3]}, ${m[4]})` : hex; };
-const localSrc = src => `${PUB}/media/${src.split('/').pop()}`;
+// Source images replaced by the site owner's own photos (source file name -> local path)
+const REPLACED = {
+  ae0cf166f84c95175c5a57a6e7b0c985: `${PUB}/media/graduate-portrait.jpg`,
+};
+const mediaKey = src => src.split('/').pop().replace('.png', '');
+const localSrc = src => REPLACED[mediaKey(src)] ?? `${PUB}/media/${src.split('/').pop()}`;
 
 // ---------- animations ----------
 const animSpecs = {};
@@ -63,7 +68,7 @@ const animFor = id => {
 // ---------- alt text for meaningful images ----------
 const ALT = {
   ef57de5a47ac051e60e971b6fd2b5b94: 'Black envelope sealed with a gold graduation-cap wax seal',
-  ae0cf166f84c95175c5a57a6e7b0c985: 'Portrait of Olivia Carter in a graduation cap and gown',
+  ae0cf166f84c95175c5a57a6e7b0c985: 'Portrait of the graduate in a white dress holding her diploma',
   '23f2b95a286d68332955398288d1cdaa': 'Willow Creek Estate garden terrace',
   '6bc24934a664208a608ee2a81ad32bc5': 'Graduation cap with gold roses',
 };
@@ -80,6 +85,27 @@ const saveSvg = text => {
 
 const rectOf = (e, W, yShift = 0) => [r2(e.tx - W / 2), r2(e.ty - yShift), r2(e.w), r2(e.h)];
 
+// Personalised content (from the owner's invitation card): source run text -> new text.
+// Paragraphs whose text changes render on one line, centred on the original box.
+const TEXT = {
+  'Olivia Carter': 'Anh Thy',
+  SATURDAY: 'WEDNESDAY',
+  MAY: 'NOV',
+  '24': '11',
+  '2031': '2026',
+  'AT 6:00 PM': 'AT 9:00 AM',
+  'Willow Creek Estate': 'ĐH Tài chính - Marketing',
+  '2450 Rosewood Lane,': '306 Võ Văn Hát, P. Long Trường,',
+  'Charleston, SC 29403': 'TP. Hồ Chí Minh',
+};
+// Font size (source px) for replaced text that must fit a narrower space than the original
+const TEXT_SIZE = {
+  'Willow Creek Estate': 14,
+};
+const HREF = {
+  'https://www.google.com/maps/search/?api=1&query=123+Bloom+Street+San+Diego+CA': 'https://maps.app.goo.gl/zBwXqjNHn8JVH3hL7',
+};
+
 const paragraphs = e => e.paras.map(p => {
   const fam = prop(p.style, 'font-family')?.split(',')[0].trim();
   const color = rgbToHex(prop(p.style, 'color'));
@@ -92,16 +118,20 @@ const paragraphs = e => e.paras.map(p => {
   };
   if (prop(p.style, 'text-transform') === 'uppercase') para.uppercase = true;
   const runs = [];
+  let changed = false;
   for (const s of p.spans) {
     if (!s.text) continue;
-    const run = { text: s.text };
+    const run = { text: TEXT[s.text] ?? s.text };
+    if (TEXT[s.text] !== undefined) changed = true;
+    if (TEXT_SIZE[s.text]) para.size = TEXT_SIZE[s.text];
     const c = rgbToHex(prop(s.style, 'color')); if (c && c !== color) run.color = c;
     const w = +prop(s.style, 'font-weight'); if (w && w !== 400) run.weight = w;
-    if (s.href) run.href = s.href;
+    if (s.href) run.href = HREF[s.href] ?? s.href;
     const last = runs.at(-1);
     if (last && last.color === run.color && last.weight === run.weight && last.href === run.href) last.text += run.text; else runs.push(run);
   }
   para.runs = runs;
+  if (changed) para.nowrap = true;
   return para;
 });
 
@@ -113,7 +143,7 @@ const convert = (e, te, me, W, TW, MW, myShift) => {
     if (e.flip) el.flip = e.flip;
     if (e.opacity !== undefined && e.opacity !== 1) el.opacity = e.opacity;
     if (e.filter) el.filter = e.filter;
-    if (e.link) el.href = e.link.href === '#page-0' ? '/template-black-gold-graduation-rsvp/page-2' : e.link.href;
+    if (e.link) el.href = e.link.href === '#page-0' ? '/ThiMBAgraduate/page-2' : e.link.href;
     const a = animFor(e.id); if (a) el.anim = a;
   };
   if (e.type === 'line') {

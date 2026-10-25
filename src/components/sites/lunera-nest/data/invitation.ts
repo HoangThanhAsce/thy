@@ -233,7 +233,7 @@ export const invitationPage: PageData = {
               181.76
             ]
           },
-          "href": "/template-black-gold-graduation-rsvp/page-2",
+          "href": "/ThiMBAgraduate/page-2",
           "src": "/sites/lunera-nest/media/ef57de5a47ac051e60e971b6fd2b5b94.png",
           "alt": "Black envelope sealed with a gold graduation-cap wax seal",
           "crop": [
@@ -503,9 +503,10 @@ export const invitationPage: PageData = {
               "color": "#121212",
               "runs": [
                 {
-                  "text": "Olivia Carter"
+                  "text": "Anh Thy"
                 }
-              ]
+              ],
+              "nowrap": true
             }
           ]
         }

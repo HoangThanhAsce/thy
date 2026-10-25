@@ -1,1 +1,4 @@
-/ /template-black-gold-graduation-rsvp/ 302
+/ /ThiMBAgraduate/ 302
+# previous paths (cloned from the Canva source URL)
+/template-black-gold-graduation-rsvp /ThiMBAgraduate/ 301
+/template-black-gold-graduation-rsvp/* /ThiMBAgraduate/:splat 301

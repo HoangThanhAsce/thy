@@ -27,3 +27,9 @@ Not reproduced:
   Canva favicon — platform branding, not part of the design.
 - `_assets/video/*.mp4` — luma-matte masks for Canva's sticker wipe effect.
 - tickcounter.com and Canva Forms iframes — rebuilt as local components.
+
+Replaced by the site owner:
+
+| Source file | Local path | Notes |
+| --- | --- | --- |
+| `media/ae0cf166f84c95175c5a57a6e7b0c985.png` (portrait) | `public/sites/lunera-nest/media/graduate-portrait.jpg` | owner's photo, JPEG 1280×854 |
