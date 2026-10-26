@@ -346,12 +346,13 @@
  * the section with data-in. A <noscript> style disables them without JavaScript.
  */
 
+/* the wipe only reveals horizontally; generous vertical slack keeps script ascenders and tails visible */
 @keyframes ln-wipe {
   from {
-    clip-path: inset(-20% 100% -20% 0);
+    clip-path: inset(-100% 100% -100% 0);
   }
   to {
-    clip-path: inset(-20% -2% -20% 0);
+    clip-path: inset(-100% -2% -100% 0);
   }
 }
 @keyframes ln-appear {
